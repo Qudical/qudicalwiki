@@ -1,0 +1,10 @@
+Title
+The DSa1984 Modkit
+Category
+DSa1984
+Section
+Modkit
+==
+#The DSa1984 Modkit#
+For creating the conversations seen in DSa1984, the developers used the *DSa1984 modkit*. The modkit is an in-game tool that allows you to create conversation files (which are actually just `.json` files) using a graphical interface, instead of manually writing a `.json` file. 
+**Note that there is currently no way to actually play a conversation file in-game without programming it in. Proper mod support isn't here yet.**

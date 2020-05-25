@@ -1,0 +1,44 @@
+body {
+    margin: 0px;
+    background-color: #242424;
+}
+
+.topnav {
+    background-color: #0f0f0f;
+    overflow: hidden;
+    height: 50px;
+    padding: 10px;
+}
+
+.topnav img {
+    height: 50px;
+    border: 0;
+}
+
+.sidebar {
+    height: calc(100% - 60px);
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 0;
+    background-color: #0f0f0f;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding-left: 10px;
+    text-decoration: none;
+    color: #5081D1;;
+    display: block;
+    margin-top: 5px;
+    font-family: sans-serif;
+}
+
+.article {
+    margin-left: 210px;
+    color: #d6d5d4;
+    font-size: 0.8em;
+    font-family: sans-serif;
+}

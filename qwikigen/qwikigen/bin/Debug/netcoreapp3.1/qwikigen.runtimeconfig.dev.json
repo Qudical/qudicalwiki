@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\GameNowPC.nl\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\GameNowPC.nl\\.nuget\\packages"
+    ]
+  }
+}
