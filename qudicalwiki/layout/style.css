@@ -42,3 +42,11 @@ body {
     font-size: 0.8em;
     font-family: sans-serif;
 }
+
+.article a {
+    color: #5081D1;;
+}
+
+.article a:visited {
+    color: #5081D1;
+}

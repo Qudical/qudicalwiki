@@ -35,15 +35,18 @@ namespace qwikigen
 			Directory.CreateDirectory(resultDir + "\\assets");
 			Directory.CreateDirectory(resultDir + "\\styles");
 			Directory.CreateDirectory(resultDir + "\\articles");
+			Directory.CreateDirectory(resultDir + "\\categories");
 
 			File.Copy(projectRoot + "\\layout\\style.css", resultDir + "\\styles\\style.css");
 
 			CopyAll(new DirectoryInfo(projectRoot + "\\assets"), new DirectoryInfo(resultDir + "\\assets"));
 
-			System.IO.File.WriteAllText(resultDir + "\\index.html",SiteConstructor.GenerateHomepage(projectRoot, resultDir, siteSettings));
-
 			SiteConstructor.categories = new Dictionary<string, Dictionary<string, List<string>>>();
+			SiteConstructor.categoryDescriptions = new Dictionary<string, string>();
 			SiteConstructor.CreateCategories(new DirectoryInfo(projectRoot + "\\articles"), new DirectoryInfo(resultDir + "\\articles"), projectRoot, resultDir);
+			SiteConstructor.CreateCategoryPages(projectRoot, resultDir);
+
+			System.IO.File.WriteAllText(resultDir + "\\index.html", SiteConstructor.GenerateHomepage(projectRoot, resultDir, siteSettings));
 
 			SiteConstructor.ConvertArticles(new DirectoryInfo(projectRoot + "\\articles"), new DirectoryInfo(resultDir + "\\articles"), projectRoot);
 

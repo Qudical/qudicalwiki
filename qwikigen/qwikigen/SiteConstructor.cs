@@ -14,6 +14,7 @@ namespace qwikigen
 		// its a dictionary of categories, each key is a category, with its value equal to a dictionary, with each key being a section, with each value being a list of page paths that are in there.
 		// i know it's ridiculous but hey it works...i think
 		public static Dictionary<string, Dictionary<string, List<string>>> categories;
+		public static Dictionary<string, string> categoryDescriptions;
 
 		public static string ProcessArticle(string path, string projectRoot)
 		{
@@ -64,8 +65,15 @@ namespace qwikigen
 
 		private static string GetSidebarLinks()
 		{
-			// TODO: add logic. for now, just give a link to the home and 84 modkit page
-			return "<a href=\"/index.html\">Home</a><a href=\"/articles/dsa1984/modkit.html\">DSa1984</a>";
+			string result = "";
+
+			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
+			{
+				string path = "\\categories\\" + category.Key + ".html";
+				result += "<a href=" + path + ">" + category.Key + "</a>";
+			}
+
+			return result;
 		}
 
 		public static void ConvertArticles(DirectoryInfo source, DirectoryInfo target, string projectRoot)
@@ -176,13 +184,53 @@ namespace qwikigen
 					if (!categories[qwi["Category"]][qwi["Section"]].Contains(relativePath))
 					{
 						categories[qwi["Category"]][qwi["Section"]].Add(relativePath);
+						categories[qwi["Category"]][qwi["Section"]].Add(qwi["Title"]);
 					}
 				}
 				else
 				{
-					categories[qwi["Category"]][qwi["Section"]] = new List<string>() { relativePath };
+					categories[qwi["Category"]][qwi["Section"]] = new List<string>() { relativePath , qwi["Title"] };
 					Console.WriteLine("Creating section " + qwi["Section"]);
 				}
+			}
+
+			// Get category description, if that has been set.
+			if (qwi.ContainsKey("CategoryDescription"))
+			{
+				if (!categoryDescriptions.ContainsKey(qwi["Category"]))
+				{
+					categoryDescriptions[qwi["Category"]] = qwi["CategoryDescription"];
+				}
+				else
+				{
+					Console.WriteLine("WARNING! Category " + qwi["Category"] + " has multiple description definitions!");
+				}
+			}
+		}
+	
+		public static void CreateCategoryPages(string projectRoot, string resultDir)
+		{
+			string template = QwfReader.ReadFileText(projectRoot + "\\layout\\template.html");
+
+			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
+			{
+				string text = "";
+				text += "<h1>" + "Category: " + category.Key + "</h2>";
+				text += "<p>" + categoryDescriptions[category.Key] + "</p>";
+				foreach (KeyValuePair<string, List<string>> section in category.Value)
+				{
+					text += "<h2>" + section.Key + "</h2>";
+					for (int i = 0; i < section.Value.Count; i += 2)
+					{
+						text += "<a href=" + section.Value[i] + ">" + section.Value[i + 1] + "</a>";
+					}
+				}
+				string resultHtml = template;
+				resultHtml = resultHtml.Replace(";;TITLE;;", "Category: " + category.Key);
+				resultHtml = resultHtml.Replace(";;ARTICLE;;", text);
+				resultHtml = resultHtml.Replace(";;SIDEBAR_LINKS;;", GetSidebarLinks());
+
+				System.IO.File.WriteAllText(resultDir + "\\categories\\" + category.Key + ".html", resultHtml);
 			}
 		}
 	}

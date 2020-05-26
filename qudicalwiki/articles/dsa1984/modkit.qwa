@@ -4,6 +4,8 @@ Category
 DSa1984
 Section
 Modkit
+CategoryDescription
+DSa1984 is a dumbass shitty game that we're still somehow maybe perhaps working on.
 ==
 #The DSa1984 Modkit#
 For creating the conversations seen in DSa1984, the developers used the *DSa1984 modkit*. The modkit is an in-game tool that allows you to create conversation files (which are actually just `.json` files) using a graphical interface, instead of manually writing a `.json` file. 
