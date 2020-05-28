@@ -204,6 +204,7 @@ namespace qwikigen
 						index++;
 					}
 				}
+
 				result += "<p>" + newLine + "</p>";
 			}
 

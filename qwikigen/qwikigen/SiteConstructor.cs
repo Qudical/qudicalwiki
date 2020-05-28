@@ -45,6 +45,7 @@ namespace qwikigen
 			result = result.Replace(";;TITLE;;", qwi["Title"]);
 			result = result.Replace(";;ARTICLE;;", article);
 			result = result.Replace(";;SIDEBAR_LINKS;;", GetSidebarLinks());
+			result = result.Replace(";;FOOTER;;", GetFooterText());
 			return result;
 		}
 
@@ -54,25 +55,20 @@ namespace qwikigen
 			List<string> articleLines = new List<string>()
 			{
 				"#Welcome to the Qudical Developer Wiki!#",
-				"Here you'll _(hopefully)_ find some useful information regarding the technical side of Qudical projects."
+				"Here you'll _(hopefully)_ find some useful information regarding the technical side of Qudical projects.",
+				"#Categories:#"
 			};
 			string article = QwfReader.MDToHTML(articleLines);
-			result = result.Replace(";;TITLE;;", siteSettings["SiteName"]);
-			result = result.Replace(";;ARTICLE;;", article);
-			result = result.Replace(";;SIDEBAR_LINKS;;", GetSidebarLinks());
-			return result;
-		}
-
-		private static string GetSidebarLinks()
-		{
-			string result = "";
-
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
 			{
 				string path = "\\categories\\" + category.Key + ".html";
-				result += "<a href=" + path + ">" + category.Key + "</a>";
+				article += "<h2><a href=" + path + ">" + category.Key + "</a></h2>";
+				article += $"<p>{categoryDescriptions[category.Key]}</p>";
 			}
-
+			result = result.Replace(";;TITLE;;", siteSettings["SiteName"]);
+			result = result.Replace(";;ARTICLE;;", article);
+			result = result.Replace(";;SIDEBAR_LINKS;;", GetSidebarLinks());
+			result = result.Replace(";;FOOTER;;", GetFooterText());
 			return result;
 		}
 
@@ -232,6 +228,24 @@ namespace qwikigen
 
 				System.IO.File.WriteAllText(resultDir + "\\categories\\" + category.Key + ".html", resultHtml);
 			}
+		}
+
+		private static string GetSidebarLinks()
+		{
+			string result = "";
+
+			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
+			{
+				string path = "\\categories\\" + category.Key + ".html";
+				result += "<a href=" + path + ">" + category.Key + "</a>";
+			}
+
+			return result;
+		}
+
+		private static string GetFooterText()
+		{
+			return $"<p>Qudical Games 2020 - <a href=\"{Program.siteSettings["GithubLink"]}\">View on github</a> - Generated using the Qudical Wiki Generator {Assembly.GetExecutingAssembly().GetName().Version.ToString()}</p>";
 		}
 	}
 }

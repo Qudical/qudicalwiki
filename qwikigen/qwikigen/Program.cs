@@ -8,7 +8,7 @@ namespace qwikigen
 {
 	class Program
 	{
-		static Dictionary<string, string> siteSettings;
+		public static Dictionary<string, string> siteSettings;
 
 		static int Main(string[] args)
 		{
