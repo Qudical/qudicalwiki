@@ -31,12 +31,12 @@ If you want to write a symbol that's used as a tag (for example you want to writ
 ~\#\#\#This will turn the text into a header of size 3, which is a bit smaller than size 2.\#\#\#~
 ###This will turn the text into a header of size 3, which is a bit smaller than size 2.###
 ###Image###
-~\$/assets/DSa1984/logo.png\$ This will make the picture at the given path appear. The path is relative to the project's root folder!~
-$/assets/DSa1984/logo.png$ This will make the picture at the given path appear. The path is relative to the project's root folder!
+~\$/qudicalwiki/assets/DSa1984/logo.png\$ This will make the picture at the given path appear. The path is relative to the project's root folder!~
+$/qudicalwiki/assets/DSa1984/logo.png$ This will make the picture at the given path appear. The path is relative to the project's root folder!
 ###Icon###
-~\%/assets/icons/DSa1984.png\% This works just like the image tag, but it will show up as a small icon, meant to be put inline with some other text.~
-%/assets/icons/DSa1984.png% This works just like the image tag, but it will show up as a small icon, meant to be put inline with some other text.
+~\%/qudicalwiki/assets/icons/DSa1984.png\% This works just like the image tag, but it will show up as a small icon, meant to be put inline with some other text.~
+%/qudicalwiki/assets/icons/DSa1984.png% This works just like the image tag, but it will show up as a small icon, meant to be put inline with some other text.
 ###Link###
-~\&/articles/qudicalwiki/howtowrite.html\&This is a link.\& - As you can see, this uses 3 tags. Between the first and second tag, a link to whatever the link should go to is given. This can be a link to another website, a link to another page (like in this example) or a link to a Header1, Header2 or Header3 on the current page. (Those are prefixed with a \#, for example \#Bold would link to the header called 'Bold' on this page.)~
-&/articles/qudicalwiki/howtowrite.html&This is a link.& - As you can see, this uses 3 tags. Between the first and second tag, a link to whatever the link should go to is given. This can be a link to another website, a link to another page (like in this example) or a link to a Header1, Header2 or Header3 on the current page. (Those are prefixed with a \#, for example \#Bold would link to the header called 'Bold' on this page.)
+~\&/qudicalwiki/articles/qudicalwiki/howtowrite.html\&This is a link.\& - As you can see, this uses 3 tags. Between the first and second tag, a link to whatever the link should go to is given. This can be a link to another website, a link to another page (like in this example) or a link to a Header1, Header2 or Header3 on the current page. (Those are prefixed with a \#, for example \#Bold would link to the header called 'Bold' on this page.)~
+&/qudicalwiki/articles/qudicalwiki/howtowrite.html&This is a link.& - As you can see, this uses 3 tags. Between the first and second tag, a link to whatever the link should go to is given. This can be a link to another website, a link to another page (like in this example) or a link to a Header1, Header2 or Header3 on the current page. (Those are prefixed with a \#, for example \#Bold would link to the header called 'Bold' on this page.)
 When linking to a header on the same page using \#, don't forget to use a backslash, or else the Generator will pick that up as a header1!

@@ -12,9 +12,9 @@ The Qudical Developer Wiki is meant to serve as reference material for all of Qu
 ###1. Anyone can read this!###
 Don't forget: The Wiki is public! There is no form of authentication, so anything you write on this site can be viewed by _literally anyone._ This means that you shouldn't write anything you don't want to spoil!
 **Just keep in mind to not say anything about the game itself, just the tech.** 
-For example: On the Wiki, the description for &/categories/DSa1984.html&DSa1984's& category doesn't say anything about the game's story, just its gameplay and technology! Try to do something similiar when writing articles.
+For example: On the Wiki, the description for &/qudicalwiki/categories/DSa1984.html&DSa1984's& category doesn't say anything about the game's story, just its gameplay and technology! Try to do something similiar when writing articles.
 ###2. Again: Anyone can read this!###
-This includes people who literally don't know _anything_ about the game's technology yet. This means that, in general, you should try to reference unexplained concepts as little as possible, like saying that &/categories/DSa1984.html&DSa1984's& modkit outputs 'Conversation Files' without actually explaining what those are.
+This includes people who literally don't know _anything_ about the game's technology yet. This means that, in general, you should try to reference unexplained concepts as little as possible, like saying that &/qudicalwiki/categories/DSa1984.html&DSa1984's& modkit outputs 'Conversation Files' without actually explaining what those are.
 Now, this doesn't mean that you should give a definition for every little word in your article. Just try to at least link to another page explaining the concept, _even if that page does not exist yet._ You can then make a page for it later, or someone else will see that no page exists for it yet, and they will make it themselves.
 ###3. Keep things formal and concise.###
 Don't forget: The Wiki is meant to be used as a quick reference while developing. This means that **all the necessary and important info should be easy to find.** For example, if you're making an article about a door object, try to put all the settings for the door at the top of the page, so that anyone placing that door down can go to your article and _immediately_ see the possible settings they can use.
@@ -52,5 +52,5 @@ The `==` at the end signifies the end of the header, and after that the actual a
 To actually write an article, you should first create a `.qwa` file (which is actually just a text with a different file extension) in the `[project\_directory]/articles` folder. It can be in any subfolder and can have any name, they don't have any effect on the outside, they're just for organization while writing the wiki. 
 **_Note:** When the site is generated the `.qwa` files are translated into `.html` files, and they will end up in the same folder structure in the generated site. Keep that in mind when creatings links._
 
-In the article file, a QWI header must first be put in. After that, the actual article may be written. To write an article, the special &/articles/qudicalwiki/marklanguage.html&Qudical Wiki markup language& should be used, which is out of the scope of this article.
+In the article file, a QWI header must first be put in. After that, the actual article may be written. To write an article, the special &/qudicalwiki/articles/qudicalwiki/marklanguage.html&Qudical Wiki markup language& should be used, which is out of the scope of this article.
 When a valid `.qwa` file has been made, and has been put somewhere withing the `articles` folder, the Wiki Generator will automatically generate a page for it and will link it with the categories and sections that you've set.
