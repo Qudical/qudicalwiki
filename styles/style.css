@@ -43,6 +43,10 @@ body {
     font-family: sans-serif;
 }
 
+.article code {
+    font-size: 14px;
+}
+
 .article a {
     color: #5081D1;;
 }
