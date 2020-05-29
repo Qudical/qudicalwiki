@@ -1,1 +1,3 @@
-git subtree push --prefix qudicalwiki/result origin gh-pages
+xcopy /s/e /y "%cd%/qudicalwiki/result" "%cd%/../qudicalwiki_result"
+cd ../qudicalwiki_result
+git commit
