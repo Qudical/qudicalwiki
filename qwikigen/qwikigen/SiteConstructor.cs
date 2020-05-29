@@ -62,7 +62,7 @@ namespace qwikigen
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
 			{
 				string path = "\\categories\\" + category.Key + ".html";
-				article += "<h2><a href=" + path + ">" + category.Key + "</a></h2>";
+				article += "<h2><a href=\"" + path + "\">" + category.Key + "</a></h2>";
 				article += $"<p>{categoryDescriptions[category.Key]}</p>";
 			}
 			result = result.Replace(";;TITLE;;", siteSettings["SiteName"]);
@@ -162,11 +162,12 @@ namespace qwikigen
 					if (!categories[qwi["Category"]][qwi["Section"]].Contains(relativePath))
 					{
 						categories[qwi["Category"]][qwi["Section"]].Add(relativePath);
+						categories[qwi["Category"]][qwi["Section"]].Add(qwi["Title"]);
 					}
 				}
 				else
 				{
-					categories[qwi["Category"]][qwi["Section"]] = new List<string>() { relativePath };
+					categories[qwi["Category"]][qwi["Section"]] = new List<string>() { relativePath, qwi["Title"] };
 					Console.WriteLine("Creating section " + qwi["Section"]);
 				}
 			}
@@ -218,7 +219,7 @@ namespace qwikigen
 					text += "<h2>" + section.Key + "</h2>";
 					for (int i = 0; i < section.Value.Count; i += 2)
 					{
-						text += "<a href=" + section.Value[i] + ">" + section.Value[i + 1] + "</a>";
+						text += "<a href=" + section.Value[i] + ">" + section.Value[i + 1] + "</a>" + "<br>";
 					}
 				}
 				string resultHtml = template;
@@ -237,7 +238,7 @@ namespace qwikigen
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
 			{
 				string path = "\\categories\\" + category.Key + ".html";
-				result += "<a href=" + path + ">" + category.Key + "</a>";
+				result += "<a href=\"" + path + "\">" + category.Key + "</a>";
 			}
 
 			return result;
@@ -245,7 +246,7 @@ namespace qwikigen
 
 		private static string GetFooterText()
 		{
-			return $"<p>Qudical Games 2020 - <a href=\"{Program.siteSettings["GithubLink"]}\">View on github</a> - Generated using the Qudical Wiki Generator {Assembly.GetExecutingAssembly().GetName().Version.ToString()}</p>";
+			return $"<p>{Program.siteSettings["FooterInfo"]} - <a href=\"{Program.siteSettings["GithubLink"]}\">View on github</a> - Generated using the Qudical Wiki Generator {Assembly.GetExecutingAssembly().GetName().Version.ToString()}</p>";
 		}
 	}
 }

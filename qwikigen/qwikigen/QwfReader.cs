@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Xml;
 
 namespace qwikigen
 {
@@ -189,26 +190,25 @@ namespace qwikigen
 				}
 			}
 
-			// Header1
+			// Header3
 			index = 0;
-			bool header1 = false;
+			bool header3 = false;
 			while (index != -1)
 			{
-				index = newText.IndexOf("#", index);
+				index = newText.IndexOf("###", index);
 				if (index != -1)
 				{
 					// Is there a backslash to escape?
 					if (index == 0 ? true : newText[index - 1] != '\\')
 					{
-						// Bit of a workaround, but since the margins in headers are quite big, we're removing the linebreaks. Same goes for Header2.
 						if (newText.Length >= index + 4)
 						{
-							if (newText.Substring(index + 1, 4) == "<br>")
+							if (newText.Substring(index + 3, 4) == "<br>")
 							{
-								newText = newText.Remove(index + 1, 4);
+								newText = newText.Remove(index + 2, 4);
 							}
 						}
-						ReplaceTag(ref newText, index, ref header1, "<h1>", "</h1>", 1);
+						ReplaceTag(ref newText, index, ref header3, "<h3>", "</h3>", 3);
 					}
 					index++;
 				}
@@ -232,7 +232,32 @@ namespace qwikigen
 								newText = newText.Remove(index + 2, 4);
 							}
 						}
-						ReplaceTag(ref newText, index, ref header2, "<h2>", "</h2>", 1);
+						ReplaceTag(ref newText, index, ref header2, "<h2>", "</h2>", 2);
+					}
+					index++;
+				}
+			}
+
+			// Header1
+			index = 0;
+			bool header1 = false;
+			while (index != -1)
+			{
+				index = newText.IndexOf("#", index);
+				if (index != -1)
+				{
+					// Is there a backslash to escape?
+					if (index == 0 ? true : newText[index - 1] != '\\')
+					{
+						// Bit of a workaround, but since the margins in headers are quite big, we're removing the linebreaks. Same goes for Header2.
+						if (newText.Length >= index + 4)
+						{
+							if (newText.Substring(index + 1, 4) == "<br>")
+							{
+								newText = newText.Remove(index + 1, 4);
+							}
+						}
+						ReplaceTag(ref newText, index, ref header1, "<h1>", "</h1>", 1);
 					}
 					index++;
 				}
@@ -264,6 +289,23 @@ namespace qwikigen
 				}
 			}
 
+			// Link
+			index = 0;
+			int link = 0;
+			while (index != -1)
+			{
+				index = newText.IndexOf("&", index);
+				if (index != -1)
+				{
+					// Is there a backslash to escape?
+					if (index == 0 ? true : newText[index - 1] != '\\')
+					{
+						ReplaceTag(ref newText, index, ref link, "<a href=\"", "\">", "</a>", 1);
+					}
+					index++;
+				}
+			}
+
 			// Icon
 			index = 0;
 			bool icon = false;
@@ -287,6 +329,22 @@ namespace qwikigen
 						lastIndex = index;
 					}
 					index++;
+				}
+			}
+
+			// Remove backslashes
+			index = newText.Length - 1;
+			while (index != -1)
+			{
+				index = newText.LastIndexOf("\\", index);
+				if (index != -1)
+				{
+					// Is there a backslash to escape?
+					if (index == 0 ? true : newText[index - 1] != '\\')
+					{
+						newText = newText.Remove(index, 1);
+					}
+					index--;
 				}
 			}
 
@@ -320,6 +378,25 @@ namespace qwikigen
 				newLine = newLine.Insert(index, closeTag);
 			}
 			tag = !tag;
+		}
+
+		private static void ReplaceTag(ref string newLine, int index, ref int tag, string openTag, string middleTag, string closeTag, int removeCount)
+		{
+			newLine = newLine.Remove(index, removeCount);
+			switch (tag)
+			{
+				case 0:
+					newLine = newLine.Insert(index, openTag);
+					break;
+				case 1:
+					newLine = newLine.Insert(index, middleTag);
+					break;
+				case 2:
+					newLine = newLine.Insert(index, closeTag);
+					break;
+			}
+
+			tag++;
 		}
 
 		public static string ReplaceAt(this string input, int index, char newChar)
