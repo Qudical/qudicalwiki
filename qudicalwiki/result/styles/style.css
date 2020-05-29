@@ -85,3 +85,10 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.article img.icon {
+    max-height:16px;
+    vertical-align: text-bottom;
+    padding-left: 2px;
+    padding-right: 2px;
+}

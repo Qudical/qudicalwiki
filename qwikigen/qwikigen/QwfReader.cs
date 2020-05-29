@@ -264,6 +264,32 @@ namespace qwikigen
 				}
 			}
 
+			// Icon
+			index = 0;
+			bool icon = false;
+			lastIndex = 0;
+			while (index != -1)
+			{
+				index = newText.IndexOf("%", index);
+				if (index != -1)
+				{
+					// Is there a backslash to escape?
+					if (index == 0 ? true : newText[index - 1] != '\\')
+					{
+						// i think this is....incredibly messy....but it works...
+						string url = "";
+						if (icon)
+						{
+							url = newText.Substring(lastIndex + "<a href=\"".Length, index - (lastIndex + "<a href=\"".Length));
+						}
+
+						ReplaceTag(ref newText, index, ref icon, "<a href=\"", $"\"><img src=\"{url}\" class=\"icon\"></a>", 1);
+						lastIndex = index;
+					}
+					index++;
+				}
+			}
+
 			return $"<p>{newText}</p>";
 		}
 

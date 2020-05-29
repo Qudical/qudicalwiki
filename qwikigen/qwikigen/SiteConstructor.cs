@@ -195,7 +195,7 @@ namespace qwikigen
 			{
 				if (!categoryDescriptions.ContainsKey(qwi["Category"]))
 				{
-					categoryDescriptions[qwi["Category"]] = qwi["CategoryDescription"];
+					categoryDescriptions[qwi["Category"]] = QwfReader.MDToHTML(qwi["CategoryDescription"]);
 				}
 				else
 				{
