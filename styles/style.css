@@ -8,6 +8,9 @@ body {
     overflow: hidden;
     height: 50px;
     padding: 10px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 
 .topnav img {
@@ -38,6 +41,7 @@ body {
 
 .article {
     margin-left: 210px;
+    margin-top: 70px;
     color: #d6d5d4;
     font-size: 0.8em;
     font-family: sans-serif;
