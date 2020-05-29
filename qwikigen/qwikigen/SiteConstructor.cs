@@ -61,7 +61,7 @@ namespace qwikigen
 			string article = QwfReader.MDToHTML(articleLines);
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
 			{
-				string path = "\\categories\\" + category.Key + ".html";
+				string path = "\\qudicalwiki\\categories\\" + category.Key + ".html";
 				article += "<h2><a href=\"" + path + "\">" + category.Key + "</a></h2>";
 				article += $"<p>{categoryDescriptions[category.Key]}</p>";
 			}
@@ -237,7 +237,7 @@ namespace qwikigen
 
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
 			{
-				string path = "\\categories\\" + category.Key + ".html";
+				string path = "\\qudicalwiki\\categories\\" + category.Key + ".html";
 				result += "<a href=\"" + path + "\">" + category.Key + "</a>";
 			}
 
