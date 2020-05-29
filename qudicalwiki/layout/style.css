@@ -43,6 +43,10 @@ body {
     font-family: sans-serif;
 }
 
+.article code {
+    font-size: 14px;
+}
+
 .article a {
     color: #5081D1;;
 }
@@ -72,4 +76,12 @@ body {
 
 .footer a:visited {
     color: #5081D1;
+}
+
+.codeblock {
+    background-color: #474747;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -5,9 +5,11 @@ DSa1984
 Section
 Modkit
 CategoryDescription
-DSa1984: A DSaF Fangame takes place 3 years before the events of DSaF1. It is being developed in Godot, and uses the QudicalVNManager for its visual novel scenes.
+DSa1984: A game that primarily has a visual novel type gameplay, but also has a couple of moments with different types of gameplay.
 ==
 #The DSa1984 Modkit#
 For creating the conversations seen in DSa1984, the developers used the *DSa1984 modkit*. The modkit is an in-game tool that allows you to create conversation files (which are actually just `.json` files) using a graphical interface, instead of manually writing a `.json` file. 
 **Note that there is currently no way to actually play a conversation file in-game without programming it in. Proper mod support isn't here yet.**
-[/assets/84void.png] Here is some text
+$/assets/test/84void.png$ Here is some text
+~this piece of code should now be
+going through different lines~
