@@ -226,6 +226,7 @@ namespace qwikigen
 				resultHtml = resultHtml.Replace(";;TITLE;;", "Category: " + category.Key);
 				resultHtml = resultHtml.Replace(";;ARTICLE;;", text);
 				resultHtml = resultHtml.Replace(";;SIDEBAR_LINKS;;", GetSidebarLinks());
+				resultHtml = resultHtml.Replace(";;FOOTER;;", GetFooterText());
 
 				System.IO.File.WriteAllText(resultDir + "\\categories\\" + category.Key + ".html", resultHtml);
 			}
