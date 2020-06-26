@@ -9,4 +9,21 @@ CategoryDescription
 ==
 # The DSa1984 Modkit
 ![DSa1984](/qudicalwiki/assets/icons/DSa1984.png)For creating the conversations seen in DSa1984, the developers used the *DSa1984 modkit*. The modkit is an in-game tool that allows you to create conversation files (which are actually just `.json` files) using a graphical interface, instead of manually writing a `.json` file. 
-The outputted `.json` file can then be used by the QudicalVNManager. DSa1984 is currently the only game using the system, so expect all documentation of the QVNS to apply to DSa1984. 
+The outputted `.json` file can then be used by the QudicalVNManager. 
+DSa1984 is currently the only game using the system, so expect all documentation of the QVNS to apply to DSa1984. 
+
+Currently the modkit can be accessed from the main menu, or through the debug menu.
+[The Modkit](/qudicalwiki/assets/DSa1984/modkit/modkit_empty.png)
+Most of the interface is as you would expect from your normal programs. You can save, load, create a new file, etc. from the top 'file' menu. 
+From the top 'test' menu you can play a conversation file (those are the exported `.json` files, _not_ the files the modkit uses!) to test it out. (It won't have a background, though.)
+
+On the left you've got the _toolbox._ From there you can drag and drop a node into the _graph_ on the right. To pan around the graph, use your middle mouse button, or press and hold your spacebar and click and drag with your mouse.
+Use the `-` and `+` buttons in the top left of the graph to zoom in and out, and press `1:1` to reset the zoom to it's default. Press the magnet button in the top left to toggle the grid, and use the dialbox next to it to change the grid size.
+
+You can click and drag the 'frame' of a node to drag it around the scene, and click and drag a connection point (the white circles on the sides of a node) and release it while hovering the mouse over another connection point to connect those two points.
+
+**Warning:** _A scene must always start with a `start` node and must always end with a `finish` node!_
+
+When you're finished creating a scene, you can export it through the export option in the top left 'file' menu. That will then export a .json file that the game can actually read.
+
+And that's all there is to it! The nodes themselves are pretty self-explanatory, but any necessairy info about them and the game itself will be listed on the [DSa1984 category page](/qudicalwiki/categories/DSa1984.html).

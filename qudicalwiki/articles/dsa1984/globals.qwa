@@ -1,0 +1,19 @@
+Title
+List of globals
+Category
+DSa1984
+Section
+Modkit
+==
+# List of DSa1984's globals
+![DSa1984](/qudicalwiki/assets/icons/DSa1984.png)This page is about the globals available in DSa1984. The globals are variables that can be accessed from everywhere in the game, both in code and in the modkit through the `if global` node.
+They are mostly used for getting and setting important story-related factors, like whether the player chose a certain important story path. These are very important for handling DSa1984's non-linear story progression.
+
+## List of globals
+**Note:** _This list is not complete, as the game is still in development! Some important spoiler-y globals will probably also not be listed. Some globals are also only meant to be used in code, so they will not be listed here either. Any globals that are of a variable type that isn't compatible with the modkit will also not be listed._
+_For a full complete list of all the available globals, check the script `global.gd` in the game's source code. It is located in `Scenes/UI`._
+- `tokens`: The amount of tokens the player currently has.
+- `time`: The current in-game time.
+- `day`: The current in-game day.
+- `name`: The current in-game name of the player.
+- `breadbearScore`: The current highscore in Breadbear.
