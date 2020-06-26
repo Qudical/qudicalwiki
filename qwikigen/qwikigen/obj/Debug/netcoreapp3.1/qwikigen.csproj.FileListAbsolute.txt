@@ -7,7 +7,9 @@ D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\bin\Debug\netcoreapp3.1\qwikig
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.csprojAssemblyReference.cache
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.AssemblyInfoInputs.cache
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.AssemblyInfo.cs
-D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.csproj.CoreCompileInputs.cache
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.dll
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.pdb
 D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.genruntimeconfig.cache
+D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\bin\Debug\netcoreapp3.1\Markdig.dll
+D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.csproj.CoreCompileInputs.cache
+D:\User\Amara\Repos\qudicalwiki\qwikigen\qwikigen\obj\Debug\netcoreapp3.1\qwikigen.csproj.CopyComplete

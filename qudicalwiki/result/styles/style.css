@@ -103,3 +103,11 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+pre {
+    background-color: #474747;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

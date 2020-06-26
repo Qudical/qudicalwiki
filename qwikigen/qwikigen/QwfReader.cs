@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Markdig;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -105,6 +106,11 @@ namespace qwikigen
 	
 		static public string MDToHTML(string text)
 		{
+			// We're now using Markdig instead of our own parser. Just works better.
+			var result = Markdown.ToHtml(text);
+			return result;
+
+			/*
 			bool bold = false;
 			bool italic = false;
 
@@ -348,7 +354,7 @@ namespace qwikigen
 				}
 			}
 
-			return $"<p>{newText}</p>";
+			return $"<p>{newText}</p>";*/
 		}
 
 		static public string MDToHTML(List<string> text)
@@ -357,11 +363,11 @@ namespace qwikigen
 			foreach (string line in text)
 			{
 				// Ideally we would be entering a \n here instead of a <br>, and instead switch to a <br> in the MDToHTML function, but that doesn't seem to work for me, so this will have to do.
-				input += line + "<br>";
+				input += line + "\n";
 			}
-			if (input.EndsWith("<br>"))
+			if (input.EndsWith("\n"))
 			{
-				input = input.Substring(0, input.LastIndexOf("<br>"));
+				input = input.Substring(0, input.LastIndexOf("\n"));
 			}
 			return MDToHTML(input);
 		}

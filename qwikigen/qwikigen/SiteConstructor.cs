@@ -54,9 +54,9 @@ namespace qwikigen
 			string result = QwfReader.ReadFileText(projectRoot + "\\layout\\template.html");
 			List<string> articleLines = new List<string>()
 			{
-				"#Welcome to the Qudical Developer Wiki!#",
+				"# Welcome to the Qudical Developer Wiki!",
 				"Here you'll _(hopefully)_ find some useful information regarding the technical side of Qudical projects.",
-				"#Categories:#"
+				"# Categories:"
 			};
 			string article = QwfReader.MDToHTML(articleLines);
 			foreach (KeyValuePair<string, Dictionary<string, List<string>>> category in categories)
@@ -219,7 +219,7 @@ namespace qwikigen
 					text += "<h2>" + section.Key + "</h2>";
 					for (int i = 0; i < section.Value.Count; i += 2)
 					{
-						text += "<a href=" + section.Value[i] + ">" + section.Value[i + 1] + "</a>" + "<br>";
+						text += "<a href=" + section.Value[i] + ">" + section.Value[i + 1] + "</a>" + "<br><br>";
 					}
 				}
 				string resultHtml = template;
