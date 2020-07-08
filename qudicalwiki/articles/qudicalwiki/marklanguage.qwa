@@ -33,7 +33,7 @@ Over here `we've got inline code.`
 Here we've got a code block!
 ```
 
-As you can see, in the first code block, there was a backslash. (\) Putting a backslash in front of a symbol used for Markdown cancels out the symbol, which is what had to be done here in order to prevent the codeblock from closing.
+As you can see, in the first code block, there was a backslash. (\\) Putting a backslash in front of a symbol used for Markdown cancels out the symbol, which is what had to be done here in order to prevent the codeblock from closing.
 
 ### Links
 ```

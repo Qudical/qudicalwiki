@@ -13,7 +13,9 @@ The outputted `.json` file can then be used by the QudicalVNManager.
 DSa1984 is currently the only game using the system, so expect all documentation of the QVNS to apply to DSa1984. 
 
 Currently the modkit can be accessed from the main menu, or through the debug menu.
-[The Modkit](/qudicalwiki/assets/DSa1984/modkit/modkit_empty.png)
+
+![The Modkit](/qudicalwiki/assets/DSa1984/modkit/modkit_empty.png)
+
 Most of the interface is as you would expect from your normal programs. You can save, load, create a new file, etc. from the top 'file' menu. 
 From the top 'test' menu you can play a conversation file (those are the exported `.json` files, _not_ the files the modkit uses!) to test it out. (It won't have a background, though.)
 

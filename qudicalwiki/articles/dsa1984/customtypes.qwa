@@ -6,7 +6,13 @@ Section
 Modkit
 ==
 # List of custom types
-![DSa1984](/qudicalwiki/assets/icons/DSa1984.png)Not every type of node is listed in the toolbox in the modkit. This is because some nodes are only ever meant to be used once, ot just so little in general that giving them their own node in the modkit would just count as unnecessary use of space. These nodes can still be used in the modkit however, through the `Custom Type` node. It allows you to enter in the name of any node type, and it will execute that type in its place, provided that that type does not have any properties that need to be set. (As the `Custom Type` node only has one text field, which is for selecting the type.) 
+![DSa1984](/qudicalwiki/assets/icons/DSa1984.png)Not every type of node is listed in the toolbox in the modkit. This is because some nodes are only ever meant to be used once, or just so little in general that giving them their own node in the modkit would just count as unnecessary use of space. 
+
+These nodes can still be used in the modkit however, through the `Custom Type` node. It allows you to enter in the name of any node type, and it will execute that type in its place, provided that that type does not have any properties that need to be set. (As the `Custom Type` node only has one text field, which is for selecting the type.) 
+
 Here is a list of the available custom types that can be used:
+
 **Warning:** _This list is not finished, as the game is still in development._
+
 - `enter_name`: This summons the textbox used in the first scene of the game, where the player enters their name.
+- `custom_dialog`: This summons a textbox, but instead of entering text in the conversation file, it is set in code by setting the VNManager's variables. (Specifically `customDialog` and `customDialogName`.) It is used for example when searching an area in-game to create the text telling the player how much tokens (if any) they've found.
